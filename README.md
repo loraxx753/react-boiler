@@ -2,8 +2,8 @@
 
 Comes with:
 
-* React Router v4
-* Styled Components (with Rebass and Styled Components Grid)
+* [React Router v4]()
+* [Styled Components]() (with [Rebass]() and [Styled Components Grid)
 * Documentation with Styleguideist
 * Mock API Server with json-server
 

@@ -1,10 +1,10 @@
 import React from 'react'
-
 import * as Rebass from 'rebass'
 
 import styled from 'styled-components'
 import { default as PrimitiveGrid } from 'styled-components-grid'
 
+// Functions
 export const realWord = camelCasedKey =>
   camelCasedKey[0].toUpperCase() +
   camelCasedKey.substring(1).replace(/([A-Z])+/g, ' $1')
@@ -24,6 +24,21 @@ export const ObjectMap = props =>
     </React.Fragment>
   ))
 
+// Custom Components
+export const Grid = PrimitiveGrid
+export const Canvas = props => <canvas {...props}>{props.children}</canvas>
+export const ListItem = props => <li {...props}>{props.children}</li>
+export const List = props =>
+  primitives.List || <ul {...props}>{props.children}</ul>
+export const Div = styled.div``
+export const Debug = props => (
+  <React.Fragment>
+    <Pre><Code>{JSON.stringify(props.children, null, 2)}</Code></Pre>
+  </React.Fragment>
+)
+
+// Load primitives theme
+
 const primitives = (r =>
   r
     .keys()
@@ -40,20 +55,9 @@ const primitives = (r =>
     ))(require.context('./', true, /index\.js$/))
 
 /**
- * Custom Exports
+ * Default Primitives
  */
-export const Div = styled.div``
 export const DarkMode = primitives.DarkMode || Rebass.DarkMode
-export const Debug = props => (
-  <React.Fragment>
-    <Pre><Code>{JSON.stringify(props.children, null, 2)}</Code></Pre>
-  </React.Fragment>
-)
-export const Grid = PrimitiveGrid
-export const Canvas = props => <canvas {...props}>{props.children}</canvas>
-export const ListItem = props => <li {...props}>{props.children}</li>
-export const List = props =>
-  primitives.List || <ul {...props}>{props.children}</ul>
 
 export const Absolute = primitives.Absolute || Rebass.Absolute
 export const Arrow = primitives.Arrow || Rebass.Arrow
