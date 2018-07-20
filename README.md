@@ -1,5 +1,13 @@
 # Boiler Plate
 
+Comes with:
+
+* React Router v4
+* Styled Components (with Rebass and Styled Components Grid)
+* Documentation with Styleguideist
+* Mock API Server with json-server
+
+
 ## Requirements
 
 For development, you will only need Node.js installed on your environement.
