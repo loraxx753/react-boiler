@@ -1,16 +1,35 @@
 import React from 'react'
-import { Text, Debug, Heading, Subhead } from 'Primitives'
+import {
+  Text,
+  Debug,
+  Heading,
+  Subhead,
+  Row,
+  Column,
+  Container
+} from 'Primitives'
+import styled from 'styled-components'
 import DefaultComponent from 'Components'
 
+// Example of overriding or adding to styles of a Primitive
+const PaddedSubhead = styled(Subhead)`
+  padding-bottom: 10px;
+`
+
 export default props => (
-  <React.Fragment>
-    <Heading>Composites</Heading>
-    <Text>Create Your Composites Here</Text>
-    <Subhead>URL Path Information</Subhead>
-    <Debug>{props}</Debug>
+  <Container>
+    <Heading>Default Composite</Heading>
+    <Text>This Composite can be found in src/Composites/index.js</Text>
+    <Row my={4}>
+      <Column>
+        <PaddedSubhead>URL Path Information</PaddedSubhead>
+        <Debug>{props}</Debug>
+      </Column>
+      <Column>
+        <PaddedSubhead>Components</PaddedSubhead>
+        <DefaultComponent />
+      </Column>
 
-    <Subhead>Components</Subhead>
-    <DefaultComponent />
-
-  </React.Fragment>
+    </Row>
+  </Container>
 )
