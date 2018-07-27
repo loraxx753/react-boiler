@@ -1,5 +1,5 @@
 {
-  "name": "wp-miner",
+  "name": "presentr-universal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,9 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "desktop": "nw ./build/",
+    "bundle": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ build/"
   },
   "devDependencies": {
-    "react-styleguidist": "^7.1.0"
+    "react-styleguidist": "^7.1.0",
+    "nw": "^0.18.2",
+    "nw-builder": "^3.1.2"
   }
 }
