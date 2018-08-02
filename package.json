@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "emotion": "^9.2.6",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.6",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "rebass": "^2.1.0",
@@ -12,6 +16,8 @@
     "styled-components-grid": "^2.1.0"
   },
   "scripts": {
+    "strip:bare": "npm uninstall emotion glamor glamorous react-emotion rebass styled-components styled-components-grid",
+    "strip": "npm uninstall rebass",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -20,8 +26,6 @@
     "bundle": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ build/"
   },
   "devDependencies": {
-    "react-styleguidist": "^7.1.0",
-    "nw": "^0.18.2",
-    "nw-builder": "^3.1.2"
+    "react-styleguidist": "^7.1.3"
   }
 }
