@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Rebass from 'rebass'
+import PrimitiveApi from './Api'
 
 import styled from 'styled-components'
 import { default as PrimitiveGrid } from 'styled-components-grid'
@@ -25,6 +26,7 @@ export const ObjectMap = props =>
   ))
 
 // Custom Components
+export const Api = PrimitiveApi
 export const Grid = PrimitiveGrid
 export const Canvas = props => <canvas {...props}>{props.children}</canvas>
 export const ListItem = props => <li {...props}>{props.children}</li>

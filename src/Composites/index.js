@@ -1,4 +1,4 @@
 import React from 'react'
-import Example from './Example'
+import Development from './Development'
 
-export default props => <Example {...props} />
+export default props => <Development {...props} />
