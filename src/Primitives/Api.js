@@ -15,7 +15,8 @@ import { Debug } from 'Primitives'
 
 const urls = {
   default: 'https://jsonplaceholder.typicode.com/',
-  stocks: 'https://api.iextrading.com/1.0'
+  stocks: 'https://api.iextrading.com/1.0',
+  colors: 'http://www.thecolorapi.com/'
 }
 
 export default class extends React.Component {
@@ -24,11 +25,11 @@ export default class extends React.Component {
     const apiType = Object.keys(props).filter(
       key => Object.keys(urls).indexOf(key) > -1
     )
-    console.log(apiType)
     this.state = {
       axiosInstance: axios.create({
         baseURL: urls[apiType] || urls.default,
-        timeout: 2000
+        timeout: 2000,
+        crossdomain: true
         //   headers: { 'X-Custom-Header': 'foobar' }
       }),
 
@@ -46,11 +47,12 @@ export default class extends React.Component {
   render () {
     return (
       <AxiosProvider instance={this.state.axiosInstance}>
-        <Get url={this.props.path}>
+        <Get url={this.props.path} {...this.props}>
           {(error, response, isLoading, onReload) => {
             if (response !== null) {
-              if (this.props.children) return this.props.children(response)
-              else return <Debug>{response}</Debug>
+              const { data, ...rest } = response
+              if (this.props.children) return this.props.children(data, rest)
+              else return <Debug>{data}</Debug>
             }
             return <div>Default message before request is made.</div>
           }}
